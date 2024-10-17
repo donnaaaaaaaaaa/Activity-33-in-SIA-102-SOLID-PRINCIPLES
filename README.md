@@ -3,6 +3,7 @@ Activity 33 in SIA 102: SOLID PRINCIPLES
 1. Single Responsibility Principle (SRP)
 A class should have only one reason to change, meaning it should have only one responsibility.
 Here, the UserService class is responsible for handling user data, while the UserController class handles HTTP requests related to users. This separation allows each class to have a single responsibility, making the code easier to maintain.in Real-World Use Case; In an e-commerce application, you might have separate services for managing orders, customers, and products, each with its own class that adheres to SRP.
+
 from flask import Flask, jsonify
 app = Flask(__name__)
 
@@ -76,14 +77,14 @@ def get_data():
 4. Interface Segregation Principle (ISP):
 No client should be forced to depend on methods it does not use. Interfaces belong to clients, not to hierarchies.
 
+# message.py
 class NotificationInterface:
     def send_email(self, message):
         pass
     
     def send_sms(self, message):
         pass
-
-# Better approach
+#better approah
 class EmailSender:
     def send_email(self, message):
         pass
@@ -97,6 +98,7 @@ In a messaging system, separating responsibilities for email and SMS ensures tha
 5. Dependency Inversion Principle (DIP):
 Abstractions should not depend upon details. Details should depend upon abstractions.
 
+# user.py
 class UserRepository:
     def fetch_users(self):
         pass
@@ -111,3 +113,5 @@ class UserService:
 By coding against interfaces (abstractions), such as in a web app where UserService depends on UserRepository, we can easily swap out the data source without altering the service logic.
 
 Applying the SOLID principles in your Python Flask applications promotes greater flexibility, maintainability, and readability. By adhering to these guidelines, you can craft software that is easier to extend and modify while reducing the risk of introducing bugs.
+
+link on meduim: https://medium.com/@bacanidonnamae452/activity-33-in-sia-102-solid-principles-d96316377790
